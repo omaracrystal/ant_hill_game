@@ -1,14 +1,14 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: black;
 }
 
 #canvas-container {
    width: 100%;
-   text-align:center;
+   text-align: center;
    position: relative;
-   top: 50%;
+   margin-top: -250px;
    transform: translateY(50%);
 
 }
