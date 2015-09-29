@@ -3,7 +3,7 @@ var imgBg;
 var imgDrops;
 var x = 0;
 var y = 0;
-var noOfDrops = 10;
+var noOfDrops = 5;
 var fallingDrops = [];
 
 setup();
@@ -35,18 +35,18 @@ setup();
         if (canvas.getContext) {
           ctx = canvas.getContext('2d');
           imgBg = new Image();
-          imgBg.src = "http://lorempixel.com/600/600/sports/";
+          imgBg.src = "../images/background.png";
 
         setInterval(draw, 45);
 
         for (var i = 0; i < noOfDrops; i++) {
           var fallingDr = new Object();
-          fallingDr["image"] =  new Image();
+          fallingDr.image =  new Image();
           fallingDr.image.src = '../images/ant.png';
 
-          fallingDr["x"] = Math.random() * 600;
-          fallingDr["y"] = Math.random() * 5;
-          fallingDr["speed"] = 1 + Math.random() * 5;
+          fallingDr.x = Math.random() * 600;
+          fallingDr.y = Math.random() * 5;
+          fallingDr.speed = 1 + Math.random() * 5;
           fallingDrops.push(fallingDr);
           }
 
