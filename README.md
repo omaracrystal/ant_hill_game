@@ -1,4 +1,7 @@
 #Defend Your Ant Hill Game
+![ant hill script](../images/anthill_game.jpg)
+
+
 
 ##Technologies (order of importance)
 - HTML5 / CSS3
