@@ -1,5 +1,5 @@
 #Defend Your Ant Hill Game
-![ant hill script](../images/anthill_game.jpg)
+<img src="../images/anthill_game.png" alt="alt text" title="Ant_Hill_Script" />
 
 
 
