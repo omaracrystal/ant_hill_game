@@ -1,10 +1,13 @@
-  var cx = document.querySelector("canvas").getContext("2d");
+var canvas = document.getElementById('canvas'),
+context = canvas.getContext('2d');
 
-  var img = document.createElement("img");
+drawAnt();
 
-  img.src = "imgages/.png";
-
-  img.addEventListener("load", function() {
-      for (var x = 10; x < 200; x += 30)
-          cx.drawImage(img, x, 10);
-  });
+function drawAnt()
+{
+  ant = new Image();
+  ant.src = '../images/ant.png';
+  ant.onload = function(){
+    context.drawImage(ant, 100, 100);
+  };
+}
