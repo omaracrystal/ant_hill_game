@@ -81,11 +81,9 @@ function drawAnts() {
 }
 
 function drawRectangle() {
-    context.beginPath();
     context.translate(331, 490);
     context.rotate(Math.PI / 180 * (angle));
-    context.rect(0, 20, 4, 80);
-    context.stroke();
+    context.strokeRect(0, 20, 4, 80);
 }
 
 
