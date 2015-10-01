@@ -1,57 +1,122 @@
 var ctx;
-var imgBg;
-var imgDrops;
+var imgAnt;
+var imgGun;
+var imgAnts;
 var x = 0;
 var y = 0;
-var noOfDrops = 5;
-var fallingDrops = [];
+var noOfAnts = 10;
+var fallingAnts = [];
 
 setup();
 
+function setup() {
+  var canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    imgBackground = new Image();
+    imgBackground.src = "../images/background.png";
 
-    function drawBackground(){
-        ctx.drawImage(imgBg, 0, 0); //Background
+    imgGun = new Image();
+    imgGun.src = "../images/gun.png";
+  //draw ant every 45 milliseconds
+  setInterval(draw, 45);
+
+  for (var i = 0; i < noOfAnts; i++) {
+    var fallingAnt = {};
+    fallingAnt.image =  new Image();
+    fallingAnt.image.src = '../images/ant.png';
+
+    fallingAnt.x = Math.random() * 800;
+    fallingAnt.y = -20;
+
+    fallingAnt.speed = 1 + Math.random() * 5;
+    fallingAnts.push(fallingAnt);
+
+  }
+}
+
+function draw() {
+  drawBackground();
+  drawGun();
+  drawAnts();
+}
+
+function drawBackground(){
+    ctx.drawImage(imgBackground, 0, 0); //Background
+}
+
+function drawGun() {
+  //reg size 8, 80
+  ctx.drawImage(imgGun, 331, 402);
+}
+
+// function gunControl(){
+('#canvas').on('keypress', gunControl());
+
+function gunControl() {
+    console.log('hit');
+    // gun.angle += (Math.PI*2) / 100;
+    // var x = gun.x + gun.length * Math.cos(gun.angle);
+    // var y = gun.y + gun.length * Math.sin(gun.angle);
+}
+
+function drawAnts() {
+  for (var i=0; i< noOfAnts; i++) {
+    ctx.drawImage (fallingAnts[i].image, fallingAnts[i].x, fallingAnts[i].y, 25, 60); //The rain ants
+
+    fallingAnts[i].y += fallingAnts[i].speed; //Set the falling speed
+
+    if (fallingAnts[i].y > 450) {  //Repeat the raindrop when it falls out of view
+
+      fallingAnts[i].y = -120; //Account for the image size
     }
+  }
+}
 
-    function draw() {
-        drawBackground();
 
-        for (var i=0; i< noOfDrops; i++)
-        {
-        ctx.drawImage (fallingDrops[i].image, fallingDrops[i].x, fallingDrops[i].y); //The rain drop
 
-        fallingDrops[i].y += fallingDrops[i].speed; //Set the falling speed
-        if (fallingDrops[i].y > 450) {  //Repeat the raindrop when it falls out of view
-        fallingDrops[i].y = -25; //Account for the image size
-        fallingDrops[i].x = Math.random() * 600;    //Make it appear randomly along the width
-        }
 
-        }
-    }
+////////////////* STEPS *////////////////
+// detect collision with other ants (make smaller)
+/*
+1. generate random number
+1. ensure random number is not already used (fallingAnts.x)
+1. if random number is not used then assign it to new x coordinate, otherwise create new random number (loop until a random number is assigned)
 
-    function setup() {
-        var canvas = document.getElementById('canvas');
+ */
 
-        if (canvas.getContext) {
-          ctx = canvas.getContext('2d');
-          imgBg = new Image();
-          imgBg.src = "../images/background.png";
+// detect collision with ant hill and stop
 
-        setInterval(draw, 45);
 
-        for (var i = 0; i < noOfDrops; i++) {
-          var fallingDr = new Object();
-          fallingDr.image =  new Image();
-          fallingDr.image.src = '../images/ant.png';
+// life goes down once the ant stops at hill
 
-          fallingDr.x = Math.random() * 600;
-          fallingDr.y = Math.random() * 5;
-          fallingDr.speed = 1 + Math.random() * 5;
-          fallingDrops.push(fallingDr);
-          }
 
-        }
-    }
+// Left and Right arrow keys - can you rotate the gun? or flip through array of pics
+// var gun = {
+//   x: 335,
+//   y: 480,
+//   length: 100,
+//   angle: 0
+// };
+
+gun.angle += (Math.PI*2) / 100;
+var x = gun.x + gun.length * Math.cos(gun.angle);
+var y = gun.y + gun.length * Math.sin(gun.angle);
+
+// Space key - to shoot bullet
+
+// detect collision bullet with ant and make dissapear (eventually make it explode then disappear)
+
+// add points for every shot
+
+// add life for every blue ant recruited
+
+// once life runs out -Game over- record points
+
+
+//add complexity to ants (array of images to appear as if it is crawling)
+// and random dihillion diagonal
+
+//increment more ants as more points are earned
 
 
 
