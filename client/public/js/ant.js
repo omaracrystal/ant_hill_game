@@ -48,6 +48,7 @@ function setup() {
         fallingAnts.push(fallingAnt);
 
     }
+    //request animation frame
     setInterval(function() {
       context.save();
       context.clearRect(0, 0, canvas.width, canvas.height);
@@ -58,7 +59,7 @@ function setup() {
       drawRectangle();
 
       context.restore();
-  }, 100);
+  }, 45);
 }
 
 
@@ -80,9 +81,10 @@ function drawAnts() {
 }
 
 function drawRectangle() {
-    context.translate(246, 375);
+    context.beginPath();
+    context.translate(331, 490);
     context.rotate(Math.PI / 180 * (angle));
-    context.rect(-5, 20, 4, 80);
+    context.rect(0, 20, 4, 80);
     context.stroke();
 }
 
@@ -98,10 +100,10 @@ document.onkeydown = function(e) {
   var event = window.event ? window.event : e;
 
   if (e.keyCode == '37') {
-     angle -= 10;
+     angle -= 5;
   }
   else if (e.keyCode == '39') {
-     angle += 10;
+     angle += 5;
   }
 };
 
@@ -122,11 +124,13 @@ document.onkeydown = function(e) {
 
 
 // Left and Right arrow keys - can you rotate the gun? or flip through array of pics
-var gun = {
-    speed: 5,
-    x: 20,
-    y: 20,
-};
+// var gun = {
+//     speed: 5,
+//     x: 20,
+//     y: 20,
+// };
+
+
 
 // imgGun.angle += (Math.PI*2) / 100;
 // var x = imgGun.x + imgGun.h * Math.cos(imgGun.angle);
