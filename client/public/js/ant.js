@@ -54,7 +54,7 @@ function setup() {
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       drawBackground();
-      // drawGun();
+      drawGun();
       drawAnts();
       drawRectangle();
 
