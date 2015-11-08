@@ -10,8 +10,7 @@
 - Gulp
 - Node and Express / CRUD
 - Mocha and Chai Tests
-- Mongoose
-- Promises
+- MongoDB
 - Deploy to Heroku
 - Social Authentication w/ Passport OAuth (Middleware)
 
